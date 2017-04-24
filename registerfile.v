@@ -1,6 +1,7 @@
-// EECE3324 Computer Architecture
-// Basic Project
-// Tim Liming & Wing Tung Yuen
+// EECE3324 
+// Computer Architecture
+// Final Project
+// Kevin Wong & Jonathan Marrero
 
 // A register file consisting of 32 32-bit registers designed in problem 2. 
 // The register file has two read ports and one write port, and one write enable port
