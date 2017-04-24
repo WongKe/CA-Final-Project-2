@@ -5,12 +5,12 @@
 
 // adds 4 to the input
 
-module add4(in0, out0);
-  input [31:0] in0;
-  output reg [31:0] out0;
+module Add4(in, out);
+  input [31:0] in;
+  output reg [31:0] out;
   
-  always @ (in0) begin
-    out0 = in0 + 4;
+  always @ (in) begin
+    out = in + 4;
   end
   
 endmodule
