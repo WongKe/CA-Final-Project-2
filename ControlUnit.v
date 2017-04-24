@@ -11,15 +11,15 @@
 
 `timescale 1ns / 1ns
 
-module control_unit(opcode, rst, RegDst, Jump, Branch, 
+module ControlUnit(opcode, rst, RegDst, Jump, Branch, 
                     MemRead, MemtoReg, MemWrite, ALUsrc, 
-                    RegWrite, ALUOp, addi, HLT);
+                    RegWrite, ALUop, addi, HLT);
   
   input [5:0] opcode;
   input rst;
   output reg RegDst, Jump, Branch, MemRead, MemtoReg, 
               MemWrite, ALUsrc, RegWrite, addi, HLT;
-  output reg [1:0] ALUOp;
+  output reg [1:0] ALUop;
   
   // initialize
   initial begin
@@ -30,9 +30,9 @@ module control_unit(opcode, rst, RegDst, Jump, Branch,
     MemRead = 0;
     MemWrite = 0;
     Branch = 0;
-    ALUOp = 2'b00;
+    ALUop = 2'b00;
     Jump = 0;
-    addi	= 0;
+    addi = 0;
     HLT = 0;
   end
         
@@ -50,7 +50,7 @@ module control_unit(opcode, rst, RegDst, Jump, Branch,
 	      MemRead = 0;
 	      MemWrite = 0;
 	      Branch = 0;
-	      ALUOp = 2'b10;
+	      ALUop = 2'b10;
 	      Jump = 0;
 	      addi = 0;
 	      HLT = 0;
@@ -65,7 +65,7 @@ module control_unit(opcode, rst, RegDst, Jump, Branch,
 	      MemRead = 0;
 	      MemWrite = 0;
 	      Branch = 0;
-	      ALUOp = 2'b10;
+	      ALUop = 2'b10;
 	      Jump = 0;
 	      addi = 1;
 	      HLT = 0;
@@ -80,7 +80,7 @@ module control_unit(opcode, rst, RegDst, Jump, Branch,
         MemRead = 1;
         MemWrite = 0;
         Branch = 0;
-	      ALUOp = 2'b00;
+	      ALUop = 2'b00;
 	      Jump = 0;
 	      addi = 0;
 	      HLT = 0;
@@ -95,7 +95,7 @@ module control_unit(opcode, rst, RegDst, Jump, Branch,
         MemRead = 0;
         MemWrite = 1;
         Branch = 0;
-	      ALUOp = 2'b00;
+	      ALUop = 2'b00;
 	      Jump = 0;
 	      addi = 0;
 	      HLT = 0;
@@ -110,7 +110,7 @@ module control_unit(opcode, rst, RegDst, Jump, Branch,
         MemRead = 0;
         MemWrite = 0;
         Branch = 1;
-	      ALUOp = 2'b01;
+	      ALUop = 2'b01;
 	      Jump = 0;
 	      addi = 0;
 	      HLT = 0;
@@ -125,7 +125,7 @@ module control_unit(opcode, rst, RegDst, Jump, Branch,
         //MemRead = x;    (don't care)
         //MemWrite = x;   (don't care)
         //Branch = x;     (don't care)
-        //ALUOp = 2'bxx;  (don't care)
+        //ALUop = 2'bxx;  (don't care)
         Jump = 1;
         //addi	= x;       (don't care)
         //HLT = x;        (don't care)
@@ -140,7 +140,7 @@ module control_unit(opcode, rst, RegDst, Jump, Branch,
         //MemRead = x;    (don't care)
         //MemWrite = x;   (don't care)
         //Branch = x;     (don't care)
-        //ALUOp = 2'bxx;  (don't care)
+        //ALUop = 2'bxx;  (don't care)
         //Jump = x;       (don't care)
         //addi	= x;       (don't care)
         HLT = 1;
@@ -154,7 +154,7 @@ module control_unit(opcode, rst, RegDst, Jump, Branch,
         MemRead = 0;
         MemWrite = 0;
         Branch = 0;
-        ALUOp = 2'b00;
+        ALUop = 2'b00;
         Jump = 0;
         addi	= 0;
         HLT = 0;
