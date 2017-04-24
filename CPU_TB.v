@@ -1,6 +1,7 @@
-// EECE3324 Computer Architecture
-// Basic Project
-// Tim Liming & Wing Tung Yuen
+// EECE3324 
+// Computer Architecture
+// Final Project
+// Kevin Wong & Jonathan Marrero
 
 // Testbench: cpu
 
