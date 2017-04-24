@@ -11,10 +11,10 @@
 
 `timescale 1ns / 1ns
 
-module ALU(ALUoperation, i0, i1, ALUresult, Zero);
+module ALU(ALUctrlop, in0, in1, ALUresult, Zero);
   
-  input [3:0] ALUoperation;
-  input [31:0] i0, i1;
+ input [3:0] ALUctrlop;
+ input [31:0] in0, in1;
   output reg [31:0] ALUresult;
   output Zero;
   
@@ -22,21 +22,21 @@ module ALU(ALUoperation, i0, i1, ALUresult, Zero);
   assign Zero = (ALUresult == '0);
   
   // generate ALU result
-  always @ (i0 or i1 or ALUoperation) begin
+ always @ (in0 or in1 or ALUctrlop) begin
     
-    case (ALUoperation)
+  case (ALUctrlop)
       // and
-      4'b0000: begin ALUresult = i0 & i1; end
+      4'b0000: begin ALUresult = in0 & in1; end
       // or
-      4'b0001: begin ALUresult = i0 | i1; end
+      4'b0001: begin ALUresult = in0 | in1; end
       // add
-      4'b0010: begin ALUresult = i0 + i1; end
+      4'b0010: begin ALUresult = in0 + in1; end
       // sub
-      4'b0110: begin ALUresult = i0 - i1; end
+      4'b0110: begin ALUresult = in0 - in1; end
       // slt
-      4'b0111: begin ALUresult = i0 < i1 ? 1 : 0; end
+      4'b0111: begin ALUresult = in0 < in1 ? 1 : 0; end
       // nor
-      4'b1000: begin ALUresult = ~(i0 | i1); end
+     4'b1000: begin ALUresult = ~(in0 | in1); end
       default: begin ALUresult = 0; end
     endcase
   end
