@@ -1,6 +1,7 @@
-// EECE3324 Computer Architecture
-// Basic Project
-// Tim Liming & Wing Tung Yuen
+// EECE3324 
+// Computer Architecture
+// Final Project
+// Kevin Wong & Jonathan Marrero
 
 // An ALU that support a set of MIPS instructions: add, addi, beq, j, lw and sw. The ALU 
 // takes a 4-bit control signal and two 32-bit data inputs in, and generates two outputs 
