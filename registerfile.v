@@ -8,12 +8,12 @@
 
 `timescale 1ns / 1ns
 
-module registerfile(readReg1, readReg2, writeReg, writeData, 
-                    en, clk, rst, readData1, readData2);
+module RegisterFile(readReg1, readReg2, writeReg, writeData, 
+                    enable, clk, rst, readData1, readData2);
   
   input [4:0] readReg1, readReg2, writeReg;
   input [31:0] writeData;
-  input en, clk, rst;
+  input enable, clk, rst;
   output reg[31:0] readData1, readData2;
   
   reg [31:0] registers[31:0];
@@ -63,7 +63,7 @@ module registerfile(readReg1, readReg2, writeReg, writeData,
   // write back
   always @ (posedge clk) begin 
     // on enable, write data in register    
-    if (en && (writeReg != 0))
+    if (enable && (writeReg != 0))
       registers[writeReg] <= writeData;
   end
    
