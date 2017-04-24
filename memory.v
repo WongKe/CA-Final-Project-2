@@ -1,3 +1,8 @@
+// EECE3324 
+// Computer Architecture
+// Final Project
+// Kevin Wong & Jonathan Marrero
+
 //=========================================================
 // Integrated Instruction/Data memory (seperate ports)
 //=========================================================
