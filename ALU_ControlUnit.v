@@ -1,6 +1,7 @@
-// EECE3324 Computer Architecture
-// Basic Project
-// Tim Liming & Wing Tung Yuen
+// EECE3324 
+// Computer Architecture
+// Final Project
+// Kevin Wong & Jonathan Marrero
 
 // The small ALU control unit that takes the ALUop and 6-bit function code in and 
 // generates 4-bit ALU_operation signal for the ALU.
