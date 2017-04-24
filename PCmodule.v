@@ -5,18 +5,18 @@
 
 // Program Counter file
 
-module ProgramCounter(in1, clk, rstPC, out1);
+module PCmodule(in, clk, rstPC, out);
   
-  input [31:0] in1;
+  input [31:0] in;
   input clk, rstPC;
-  output reg [31:0] out1;
+  output reg [31:0] out;
   
   // handle output and reset case
   always @ (posedge clk or posedge rstPC) begin
     if (rstPC)
-      out1 <= 4096;
+      out <= 12288;
     else
-      out1 <= in1;
+      out <= in;
   end
   
 endmodule
