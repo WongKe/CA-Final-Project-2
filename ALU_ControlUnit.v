@@ -10,7 +10,7 @@
 
 `timescale 1ns / 1ns
 
-module ALU_control_unit(ALUop, addi, func, ALUoperation);
+module ALU_ControlUnit(ALUop, addi, func, ALUoperation);
   
   input [1:0] ALUop;
   input addi;
