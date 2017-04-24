@@ -1,6 +1,7 @@
-// EECE3324 Computer Architecture
-// Basic Project
-// Tim Liming & Wing Tung Yuen
+// EECE3324 
+// Computer Architecture
+// Final Project
+// Kevin Wong & Jonathan Marrero
 
 // The control unit that takes 6-bit opcode in and generate a set of 9 control signals, 
 // including RegDst, Jump, Branch, MemRead, MemtoReg, MemWrite, ALUsrc, RegWrite, 
