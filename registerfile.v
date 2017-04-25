@@ -11,14 +11,14 @@
 module RegisterFile(readReg1, readReg2, writeReg, writeData, 
                     enable, clk, rst, readData1, readData2);
   
-  input [4:0] readReg1, readReg2, writeReg;
-  input [31:0] writeData;
-  input enable, clk, rst;
-  output reg[31:0] readData1, readData2;
-  
+  input [4:0] readReg1, readReg2, writeReg;   // 3 5-bit inputs
+  input [31:0] writeData;                     // 1 32-bit input
+  input enable, clk, rst;                     // 3 inputs
+  output reg[31:0] readData1, readData2;      // 2 32-bit outputs
+ 
   reg [31:0] registers[31:0];
   
-  // set registers to zero on reset
+  //  On reset: make registers 0.
   always @ (posedge rst) begin
     registers [0] = 0;
     registers [1] = 0;
@@ -53,16 +53,14 @@ module RegisterFile(readReg1, readReg2, writeReg, writeData,
     registers [30] = 0;
     registers [31] = 0;
   end
-  
-  // handle register data
+  //  Register Data 
   always @ (readReg1 or readReg2) begin
     readData1 <= registers[readReg1];
     readData2 <= registers[readReg2];
   end
-  
-  // write back
+  // Write Back
   always @ (posedge clk) begin 
-    // on enable, write data in register    
+    // Enable? If yes, write data to register.    
     if (enable && (writeReg != 0))
       registers[writeReg] <= writeData;
   end
