@@ -3,17 +3,18 @@
 // Final Project
 // Kevin Wong & Jonathan Marrero
 
-// Shift Left 2 module
+// Module for Shift Left 2
 
 `timescale 1ns/1ns
 
 module ShiftLeft2(in, out);
   
-  input [31:0] in;       // output of sign-extend
-  output reg [31:0] out; // output of shift-left 2
+  input [31:0] in;       // Uses output of sign extend as input
+  output reg [31:0] out; // Shift Left 2 Output
   
+  //ShiftLeft2 Operation
   always @ (in) begin
-    // ignore first two bits and add two zeros to end
+    // Add two zeros at the end. Ignore first 2 bits.
     out = {in[29:0], 2'b00};
   end
 endmodule  
