@@ -3,17 +3,19 @@
 // Final Project
 // Kevin Wong & Jonathan Marrero
 
-// 2-to-1 MUX  (32-bit inputs)
+// Module for the 2-1 Multiplexer (32 bit)
 
 `timescale 1ns / 1ns
 
 module mux2to1(in0, in1, sel, out);
   
-  input [31:0] in0, in1;    // input 1 and 2
-  input sel;              // select bit
-  output reg [31:0] out;  // output
+  input [31:0] in0, in1;    // Input 1 & 2
+  input sel;                // Bit for Select
+  output reg [31:0] out;    // Output
   
-  // loop for mux operation
+  
+  //Loop for MUX operation
+  
   always @ (sel or in0 or in1)
   begin
     case(sel)
