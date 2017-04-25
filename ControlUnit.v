@@ -5,7 +5,7 @@
 
 // Module for Control Unit
 // Input: 6-bit opcode
-// Output: 9 control signals
+// Output: 10 control signals
 // Control Unit modeled after Pg. 327 Figure 4.22
 
 `timescale 1ns / 1ns
