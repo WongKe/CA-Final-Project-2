@@ -11,7 +11,7 @@ module PCmodule(in, clk, rstPC, out);
   input clk, rstPC;
   output reg [31:0] out;
   
-  // Outpu and Reset Case
+  // Output and Reset Case
   always @ (posedge clk or posedge rstPC) begin
     if (rstPC)
       out <= 12288; //Given in assignment 0x00003000
