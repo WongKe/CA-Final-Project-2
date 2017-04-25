@@ -18,7 +18,7 @@ module CPU(clk, rst, rstPC);
   wire [31:0] SEout, SL2out, PCaddOut;
   wire [25:0] SL2input;
   wire [15:0] SEin;
-  wire [5:0] ctrlInput, ALUcntrl;
+  wire [5:0] ctrlInput, ALUctrl;
   wire [4:0] Reg_Write_reg, ReadReg1, ReadReg2, WrRegMuxIn;
   wire [3:0] ALUctrlop;
   wire Zero;
