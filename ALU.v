@@ -24,17 +24,23 @@ module ALU(ALUctrlop, in0, in1, ALUresult, Zero);
     
   case (ALUctrlop)
       // AND
-      4'b0000: begin ALUresult = in0 & in1; end
+      4'b0000: begin ALUresult = in0 & in1;
+      end
       // OR
-      4'b0001: begin ALUresult = in0 | in1; end
+      4'b0001: begin ALUresult = in0 | in1;
+      end
       // ADD
-      4'b0010: begin ALUresult = in0 + in1; end
+      4'b0010: begin ALUresult = in0 + in1;
+      end
       // SUB
-      4'b0110: begin ALUresult = in0 - in1; end
+      4'b0110: begin ALUresult = in0 - in1;
+      end
       // SLT
-      4'b0111: begin ALUresult = in0 < in1 ? 1 : 0; end
+      4'b0111: begin ALUresult = in0 < in1 ? 1 : 0;
+      end
       // NOR
-     4'b1000: begin ALUresult = ~(in0 | in1); end
+     4'b1000: begin ALUresult = ~(in0 | in1);
+     end
       default: begin ALUresult = 0; 
       end
     endcase
