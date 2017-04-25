@@ -3,14 +3,15 @@
 // Final Project
 // Kevin Wong & Jonathan Marrero
 
-// cpu module
+//Module for CPU. Connects all other modules.
+
 `timescale 1ns/1ns
 
 module CPU(clk, rst, rstPC);
   input clk;
   input rst, rstPC;  
   
-  // Wires
+  //  Initialize Wires
   wire [31:0] PCinput, PCoutput, PC4, Jadd, PCmux1out;
   wire [31:0] Instruction;
   wire [31:0] Reg_read_data1, Reg_read_data2, Reg_Write_Data;
@@ -23,7 +24,7 @@ module CPU(clk, rst, rstPC);
   wire [3:0] ALUctrlop;
   wire Zero;
   
-  // Control Signals
+  //  Initialize Control signals
   wire RegDst;
   wire Jump;
   wire Branch;
@@ -36,7 +37,7 @@ module CPU(clk, rst, rstPC);
   wire addi;
   wire HLT;
   
-  // Decode Instruction
+  //  Instruction to decode
   assign SL2input = Instruction[25:0];
   assign ctrlInput = Instruction[31:26];
   assign ReadReg1 = Instruction[25:21];
@@ -44,10 +45,9 @@ module CPU(clk, rst, rstPC);
   assign WrRegMuxIn = Instruction[15:11];
   assign SEin = Instruction[15:0];
   assign ALUctrl = Instruction[5:0];
-  
   assign PCmux1sel = Branch & Zero;
   
-  // Connect Modules
+  //  Modules connection
   PCmodule PC(PCinput, clk, rstPC, PCoutput);
   Add4 add4(PCoutput, PC4);
   ShiftLeft2PC SL2PC(SL2input, PC4, Jadd);
