@@ -3,7 +3,7 @@
 // Final Project
 // Kevin Wong & Jonathan Marrero
 
-// Program Counter file
+// PC module
 
 module PCmodule(in, clk, rstPC, out);
   
@@ -11,10 +11,10 @@ module PCmodule(in, clk, rstPC, out);
   input clk, rstPC;
   output reg [31:0] out;
   
-  // handle output and reset case
+  // Outpu and Reset Case
   always @ (posedge clk or posedge rstPC) begin
     if (rstPC)
-      out <= 12288;
+      out <= 12288; //Given in assignment 0x00003000
     else
       out <= in;
   end
