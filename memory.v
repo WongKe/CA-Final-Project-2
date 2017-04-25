@@ -8,7 +8,7 @@
 //=========================================================
 `define EOF 32'hFFFF_FFFF
 `define NULL 0
-`timescale 1ns/1ns
+`timescale 1ns/1ns  //Changed from 1ns/100ps to 1ns/1ns
 
 module Memory(
     inst_addr,
