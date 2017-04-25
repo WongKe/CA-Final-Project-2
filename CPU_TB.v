@@ -3,37 +3,35 @@
 // Final Project
 // Kevin Wong & Jonathan Marrero
 
-// Testbench: cpu
+// Module for CPU testbench
+
 
 `timescale 1ns / 1ns
 
 module cpu_tb;
   
-  reg clk;  // input: clock
-  reg rst, rstPC;  // input: reset
+  reg clk;          // Input: clk
+  reg rst, rstPC;   // Input: rst
   
   integer cycles, instrs;
   
-  // instantiate DUT (device under test)
+ // Device Under Test
   CPU DUT(clk, rst, rstPC);
   
   initial begin
     $timeformat(-9, 1, " ns", 6);
     
     clk = 1'b0;
-    
     cycles = 0;
     instrs = 0;
-    
     rst = 1;
     rstPC = 1;
-    
     #10 rst = 0;
     rstPC = 0;
   end
   
   
-  // generate a clock pulse
+  // Clock Pulse Generated
   always #10 clk = ~clk;
   
   always @ (posedge clk) begin
@@ -42,11 +40,12 @@ module cpu_tb;
       instrs = instrs + 1;
   end
   
-  // display data
+  
+  
+  // Data Display
   always #2000 $display("Total # of cycles: %d \n", cycles);
   always #2000 $display("Total # of instructions: %d \n", instrs);
   always #2000 $display("CPI: %d \n", cycles/instrs);
-  
   always #2000 $display("Register file contents: \n");
   always #2000 $display("R0: %h R1: %h \n", DUT.Registers.registers[0], DUT.Registers.registers[1]);
   always #2000 $display("R2: %h R3: %h \n", DUT.Registers.registers[2], DUT.Registers.registers[3]);
