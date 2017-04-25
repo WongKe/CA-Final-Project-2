@@ -1,30 +1,30 @@
-// EECE3324 
-// Computer Architecture
-// Final Project
-// Kevin Wong & Jonathan Marrero
+//  EECE3324 
+//  Computer Architecture
+//  Final Project
+//  Kevin Wong & Jonathan Marrero
 
-// 2-to-1 MUX  (5-bit inputs)
+//  This module serves as the 2-1 Multiplexer (5 bit inputs)
 
 `timescale 1ns / 1ns
 
 module mux2to1_5bit(in0, in1, sel, out);
   
-  input [4:0] in0, in1;   // input 1 and 2
-  input sel;            // select bit
-  output reg [4:0] out; // output
+  input [4:0] in0, in1;   //  Input 1 & 2
+  input sel;              //  Bit for select
+  output reg [4:0] out;   //  Output
   
-  // loop for mux operation
+  //  MUX Operation Loop
   always @ (sel or in0 or in1)
   begin
     case(sel)
-      // if sel is 0...
+      //  Select = 0
       1'b0: begin
-        // select input 1
+        //  Input 1 chosen
         out <= in0;
       end
-      // if sel is 1...
+      //  Select = 1
       1'b1: begin
-        // select input 2
+        //  Input 2 chosen
         out <= in1;
       end
     endcase
