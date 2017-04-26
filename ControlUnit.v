@@ -10,9 +10,8 @@
 
 `timescale 1ns / 1ns
 
-module ControlUnit(opcode, rst, RegDst, Jump, Branch, 
-                    MemRead, MemtoReg, MemWrite, ALUsrc, 
-                    RegWrite, ALUop, addi, HLT);
+module ControlUnit(opcode, rst, RegDst, Jump, Branch, MemRead, MemtoReg,
+			MemWrite, ALUsrc, RegWrite, ALUop, addi, HLT);
   
   input [5:0] opcode;
   input rst;
