@@ -10,15 +10,8 @@
 `define NULL 0
 `timescale 1ns/1ns  //Changed from 1ns/100ps to 1ns/1ns
 
-module Memory(
-    inst_addr,
-    instr,
-	data_addr,
-	data_in,
-	mem_read,
-	mem_write,
-	data_out
-);
+module Memory(inst_addr, instr, data_addr, data_in,
+	mem_read, mem_write, data_out);
 
 // Interface
 input   [4*8:1]  inst_addr;
