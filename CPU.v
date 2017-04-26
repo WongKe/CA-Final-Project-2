@@ -12,7 +12,7 @@ module CPU(clk, rst, rstPC);
   input rst, rstPC;  
   
   //  Initialize Wires
-  wire [31:0] PCinput, PCoutput, PC4, Jadd, PCmux1out;
+  wire [31:0] PCinput, PCoutput, PC4, Jaddr, PCmux1out;
   wire [31:0] Instruction;
   wire [31:0] Reg_read_data1, Reg_read_data2, Reg_Write_Data;
   wire [31:0] mux1out, ALUresult, Mem_read_data;
@@ -50,9 +50,9 @@ module CPU(clk, rst, rstPC);
   //  Modules connection
   PCmodule PC(PCinput, clk, rstPC, PCoutput);
   Add4 add4(PCoutput, PC4);
-  ShiftLeft2PC SL2PC(SL2input, PC4, Jadd);
+  ShiftLeft2PC SL2PC(SL2input, PC4, Jaddr);
   mux2to1 PCMux1(PC4, PCaddOut, PCmux1sel, PCmux1out);
-  mux2to1 PCMux2(PCmux1out, Jadd, Jump, PCinput);
+  mux2to1 PCMux2(PCmux1out, Jaddr, Jump, PCinput);
   ControlUnit CtrlU(ctrlInput, rst, RegDst, Jump, Branch, MemRead, MemtoReg, 
                      MemWrite, ALUsrc, RegWrite, ALUop, addi, HLT);
   SignExtend SE(SEin, SEout);
